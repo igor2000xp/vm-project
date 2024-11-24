@@ -1,1 +1,64 @@
+<main class="main">
+  <h1 id="Start">Hello, {{ title }}</h1>
+  <p>Congratulations! Your app is running. 🎉</p>
+
+  <mat-divider></mat-divider>
+
+  <section>
+    <h2 id="examleDocs">Example from official DOCS</h2>
+    <br />
+    <div>
+      <a href="https://material.angular.io/components/button/overview" mat-button>Link</a>
+    </div>
+  </section>
+  <section>
+    <div class="example-label">FAB</div>
+
+    <button mat-fab class="fab-button">
+      <mat-icon>delete</mat-icon>
+    </button>
+
+    <button mat-fab class="fab-button disabled" aria-label="Example icon button with a heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+  </section>
+
+  <mat-divider></mat-divider>
+
+  <section>
+    <div class="example-label">Mini FAB</div>
+
+    <button mat-mini-fab class="fab-button">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-mini-fab class="fab-button disabled">
+      <mat-icon>home</mat-icon>
+    </button>
+  </section>
+
+  <mat-divider></mat-divider>
+
+  <section>
+    <div class="example-label">Extended Fab</div>
+
+    <button mat-fab extended class="fab-button">
+      <mat-icon>favorite</mat-icon>
+      Basic
+    </button>
+
+    <button mat-fab extended class="fab-button disabled">
+      <mat-icon>favorite</mat-icon>
+      Disabled
+    </button>
+
+    <a mat-fab extended routerLink=".">
+      <mat-icon>favorite</mat-icon>
+      Link
+    </a>
+  </section>
+</main>
+
+<router-outlet />
+
 <router-outlet></router-outlet>
