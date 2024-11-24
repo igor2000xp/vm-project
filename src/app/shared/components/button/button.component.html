@@ -1,0 +1,16 @@
+<ng-container [ngSwitch]="buttonType">
+  <ng-container *ngSwitchCase="btnType.fab" [ngTemplateOutlet]="fabButton" />
+  <ng-container *ngSwitchCase="btnType.flat" [ngTemplateOutlet]="defaultButton" />
+</ng-container>
+
+<ng-template #fabButton>
+  <button mat-mini-fab class="tune" [style.width.px]="size" [style.height.px]="size">
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+</ng-template>
+
+<ng-template #defaultButton>
+  <button mat-flat-button [ngClass]="buttonClass" [disabled]="isDisabled">
+    <ng-content />
+  </button>
+</ng-template>

@@ -1,0 +1,111 @@
+<h1>Hello, {{ title }}</h1>
+<p>Congratulations! Your app is running. 🎉</p>
+<mat-divider></mat-divider>
+<section>
+  <app-button
+    [buttonType]="buttonType.flat"
+    [buttonClass]="tags.length >= 5 ? 'disabled' : 'card'"
+    (click)="resetForm()"
+    [isDisabled]="tags.length >= 5"
+    >Add Tag
+  </app-button>
+  <app-button [buttonType]="buttonType.flat" buttonClass="card" (click)="resetForm()"> Reset </app-button>
+  <app-button
+    [buttonType]="buttonType.flat"
+    [buttonClass]="form.invalid ? 'disabled' : 'card'"
+    type="submit"
+    [isDisabled]="form.invalid">
+    Login
+  </app-button>
+</section>
+
+<mat-divider></mat-divider>
+<section>
+  @if (true) {
+    <app-button [buttonType]="buttonType.fab" [icon]="iconsMap['tune']" [size]="24" (click)="toggleFilterBlock()" />
+  }
+
+  <app-button [icon]="iconsMap['account']" [buttonType]="buttonType.fab" [size]="24" />
+  @if (userName) {
+    <app-button [buttonType]="buttonType.flat" buttonClass="search" class="logout-btn" (click)="logout()">
+      Logout
+    </app-button>
+  }
+</section>
+
+<mat-divider></mat-divider>
+<section>
+  <!-- <div class="filter" *ngIf="true">
+  <p class="label">Sorting by:</p> -->
+
+  <!-- <ng-container *ngFor="let name of buttons"> -->
+  <ng-container *ngFor="let name of buttons">
+    <app-button
+      (click)="name === btnName.Search ? sortByWord(word.value) : sortByValue(name)"
+      [buttonClass]="getSortDirectionArrow(name) || 'filter'"
+      >{{ name === btnName.Count ? 'count of views' : name }}
+    </app-button>
+  </ng-container>
+
+  <mat-form-field class="form-field" appearance="outline">
+    <input #word class="input-el" matInput />
+  </mat-form-field>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <h2>Example from ofical DOCS</h2>
+  <br />
+  <div>
+    <a href="https://material.angular.io/components/button/overview" mat-button>Link</a>
+  </div>
+</section>
+<section>
+  <div class="example-label">FAB</div>
+
+  <button mat-fab class="fab-button">
+    <mat-icon>delete</mat-icon>
+  </button>
+
+  <button mat-fab class="fab-button disabled" aria-label="Example icon button with a heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <div class="example-label">Mini FAB</div>
+
+  <button mat-mini-fab class="fab-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <button mat-mini-fab class="fab-button disabled">
+    <mat-icon>home</mat-icon>
+  </button>
+</section>
+
+<mat-divider></mat-divider>
+
+<section>
+  <div class="example-label">Extended Fab</div>
+
+  <button mat-fab extended class="fab-button">
+    <mat-icon>favorite</mat-icon>
+    Basic
+  </button>
+
+  <button mat-fab extended class="fab-button disabled">
+    <mat-icon>favorite</mat-icon>
+    Disabled
+  </button>
+
+  <a mat-fab extended routerLink=".">
+    <mat-icon>favorite</mat-icon>
+    Link
+  </a>
+</section>
+
+<router-outlet />
