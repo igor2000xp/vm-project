@@ -1,0 +1,72 @@
+// https://css-live.ru/articles-css/pravilnye-kontrolnye-tochki-v-css.html
+
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-only {
+  @media (min-width: 600px) and (max-width: 899px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-only {
+  @media (min-width: 900px) and (max-width: 1199px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-desktop-only {
+  @media (min-width: 1200px) and (max-width: 1799px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+// @mixin media-desktop {
+//   @media (min-width: $content-max-laptop - 1px) { @content; }
+// }
+// @mixin media-laptop {
+//   @media (max-width: 1000px) { @content; }
+// }
+// //@mixin media-tablet {
+// //  @media (max-width: 1000px) { @content; }
+// //}
+// @mixin media-mobile {
+//   @media (max-width: 600px) { @content; }
+// };
+
+@mixin font-mix($size: 1.5rem, $height: 120%, $weight: 400, $style: normal) {
+  font-size: $size;
+  font-family: 'Roboto', sans-serif;
+  font-style: $style;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+@mixin border($color: white) {
+  border: 1px solid $color;
+}
+@mixin display-flex($justify: center, $direction: row, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

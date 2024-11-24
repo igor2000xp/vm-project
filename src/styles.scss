@@ -1,10 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
-
+@use '@angular/material' as mat;
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* You can add global styles to this file, and also import other style files */
-@use '@angular/material' as mat;
+@use './styles/abstract/constants';
+@use './styles/abstract/mixins';
+@use './styles/abstract/placeholder';
+// @use './styles/base/base';
 
 html,
 body {
@@ -19,7 +21,7 @@ html {
         // tertiary: mat.$orange-palette,
         primary: mat.$magenta-palette,
         // tertiary: mat.$violet-palette,
-        tertiary: mat.$m2-cyan-palette,
+        tertiary: mat.$cyan-palette,
         theme-type: dark,
       ),
       // typography: Roboto,
@@ -33,7 +35,7 @@ html {
         ),
       density: 0,
     )
-  )
+  );
 }
 body {
   background: var(--mat-sys-surface);
@@ -41,8 +43,6 @@ body {
   margin: 0;
   padding: 30px;
   // font-family: Roboto, 'Helvetica Neue', sans-serif;
-  margin: 0;
-  padding: 30px;
   height: 100%;
 }
 
@@ -59,4 +59,3 @@ body {
 // $azure-palette
 // $violet-palette
 // $rose-palette
-
