@@ -1,3 +1,9 @@
+@mixin font-mix($size, $height, $weight) {
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+}
+
 html {
   font-size: 10px;
 }
