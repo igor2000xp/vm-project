@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -14,6 +14,7 @@ import { map, shareReplay } from 'rxjs/operators';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
   standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     MatToolbarModule,
     MatButtonModule,
@@ -26,9 +27,9 @@ import { map, shareReplay } from 'rxjs/operators';
 export class HeaderComponent {
   private breakpointObserver = inject(BreakpointObserver);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  // isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  //   .pipe(
+  //     map(result => result.matches),
+  //     shareReplay()
+  //   );
 }
