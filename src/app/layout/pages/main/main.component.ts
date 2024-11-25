@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import { GalleryComponent } from '../../components/gallery/gallery.component';
 
 @Component({
   selector: 'app-main',
@@ -14,7 +15,9 @@ import { MatDividerModule } from '@angular/material/divider';
     MatInputModule,
     MatIconModule,
     MatDividerModule,
-    HeaderComponent],
+    HeaderComponent,
+    GalleryComponent,
+  ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   standalone: true,

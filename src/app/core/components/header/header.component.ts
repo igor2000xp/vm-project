@@ -6,8 +6,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { Observable } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+// import { Observable } from 'rxjs';
+// import { map, shareReplay } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -16,12 +17,13 @@ import { map, shareReplay } from 'rxjs/operators';
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
+    ButtonComponent,
     MatToolbarModule,
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
     MatIconModule,
-    AsyncPipe,
+    // AsyncPipe,
   ]
 })
 export class HeaderComponent {

@@ -1,17 +1,39 @@
-.sidenav-container {
-  height: var(--mat-toolbar-standard-height, 64px);
-}
+:host {
+  .sidenav-container {
+    height: var(--mat-toolbar-standard-height, 64px);
+  }
 
-.sidenav {
-  width: 200px;
-}
+  .sidenav {
+    width: 200px;
+  }
 
-.sidenav .mat-toolbar {
-  background: inherit;
-}
+  .sidenav .mat-toolbar {
+    background: inherit;
+  }
 
-.mat-toolbar.mat-primary {
-  position: sticky;
-  top: 0;
-  z-index: 1;
+  .mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+  .button-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    row-gap: 20%;
+    height: 100%;
+  }
+
+  .logo {
+    width: 30%;
+    // height: 100px;
+  }
 }
