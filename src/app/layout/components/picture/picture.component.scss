@@ -1,14 +1,4 @@
 @use '../../../styles/abstract/mixins' as *;
-// @use '@angular/material' as mat;
-
-// Customize the entire app. Change :root to your selector if you want to scope the styles.
-// :root {
-//   @include mat.progress-spinner-overrides(
-//     (
-//       active-indicator-color: orange,
-//     )
-//   );
-// }
 
 :host {
   width: 100%;
@@ -32,13 +22,7 @@
     box-shadow: 2px 0px 4px 0px #764949;
   }
   .loading {
-    // @include mat.progress-spinner-overrides(
-    //   (
-    //     active-indicator-color: orange,
-    //   )
-    // );
     margin: auto;
-    // align-items: center;
     display: flex;
     justify-content: center;
   }
