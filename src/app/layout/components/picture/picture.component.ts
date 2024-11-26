@@ -15,29 +15,16 @@ import { GetPictureBanchService } from 'src/app/shared/services/get-picture-banc
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PictureComponent implements OnInit {
-  dataPic: string[] = [];
   dataPicObj: PictureInterface[] = [];
-  // picSignal: WritableSignal<PictureInterface[]> = signal<PictureInterface[]>([]);
-  // DATA_FOLDER + pictureArray[0];
   getPictureBanch = inject(GetPictureBanchService);
-  picSignal = toSignal(this.getPictureBanch.getBanch(Object.values(this.dataPicObj))) as WritableSignal<PictureInterface[]>;
-
-  // constructor(private getPictureBanch: GetPictureBanchService) { }
-
-  getScreenArray() {
-    for (let i = 0; i < 6; i += 1) {
-      this.dataPic.push(DATA_FOLDER + pictureArray[i]);
-    }
-  }
+  picSignal = toSignal(this.getPictureBanch.getBanch(Object.values(this.dataPicObj)));
 
   getScreenArraySignal() {
-    const a = Object.values(this.dataPicObj);
-    this.getPictureBanch.getBanch(a);
+    this.getPictureBanch.getBanch(Object.values(this.dataPicObj));
     console.log(this.picSignal());
   }
 
   ngOnInit(): void {
-    this.getScreenArray();
     this.getScreenArraySignal();
   }
 }
