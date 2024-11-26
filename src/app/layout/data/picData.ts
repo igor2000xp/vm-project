@@ -1,6 +1,4 @@
-// import { pic } from 'src/assets/pictures/15-200x300.jpg';
-
-export const DATA_FOLDER = 'src/assets/pictures/';
+export const DATA_FOLDER = 'assets/pictures/';
 
 export const pictureArray = [
   '61-200x300.jpg',

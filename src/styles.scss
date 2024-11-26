@@ -1,12 +1,25 @@
 @use '@angular/material' as mat;
 // html, body { height: 100%; }
 // body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
 /* You can add global styles to this file, and also import other style files */
-@use './styles/abstract/constants';
-@use './styles/abstract/mixins';
-@use './styles/abstract/placeholder';
-@use './styles/base/base';
+
+/*
+You chave to add in angular.json
+projects > your-project-name > architect > build > options > and after styles{},
+
+  "stylePreprocessorOptions": {
+    "includePaths": [
+      "src/app/styles/abstract/mixins",
+      "src/app/styles/abstract/constants",
+      "src/app/styles/abstract/placeholders",
+      "src/app/styles/base/base"
+    ]
+  },
+*/
+@use 'app/styles/abstract/constants' as *;
+@use 'app/styles/abstract/mixins' as *;
+@use 'app/styles/abstract/placeholders' as *;
+@use 'app/styles/base/base' as *;
 
 html,
 body {
@@ -39,7 +52,6 @@ body {
   padding: 0;
   height: 100%;
 }
-
 //  https://material.angular.io/guide/theming
 // $red-palette
 // $green-palette

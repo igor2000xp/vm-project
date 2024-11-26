@@ -1,0 +1,23 @@
+@use '../../../styles/abstract/mixins' as *;
+
+:host {
+  .layout-3-column {
+    @include columns(30%);
+  }
+
+  .pic-wrapper {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .pic {
+    display: inline-block;
+  }
+  .fab-button {
+    background: var(--mat-sys-primary-container);
+    color: var(--mat-sys-on-primary-container);
+    border: 1px solid var(--mat-sys-outline-variant);
+    border-radius: 2px;
+    box-shadow: 2px 0px 4px 0px #764949;
+  }
+}

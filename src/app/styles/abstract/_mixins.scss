@@ -70,3 +70,25 @@
   justify-content: $justify;
   align-items: $align;
 }
+
+//  $direction: column, $justify: center, $align: center
+
+@mixin columns($with) {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  // gap: 5%;
+  // row-gap: 15%;
+  //space-between/ /space-around/ /space-evenly/
+  justify-content: space-between;
+  // align-items: $align;
+
+  > * {
+    flex-basis: $with;
+  }
+}
+
+// @mixin columns($width) {
+//   width: $width;
+//   float: left;
+// }
