@@ -3,8 +3,11 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@core/*": ["app/core/*"],
-      "@shared/*": ["app/shared/*"]
+      "@core/*": ["src/app/core/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@assets/*": ["src/assets/*"],
+      "@env/*": ["src/environments/*"],
+      "@style/*": ["src/app/style/*"]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

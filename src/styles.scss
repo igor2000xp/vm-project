@@ -7,19 +7,28 @@
 You chave to add in angular.json
 projects > your-project-name > architect > build > options > and after styles{},
 
+  "styles": ["@angular/material/prebuilt-themes/deeppurple-amber.css", "src/styles.scss"],
   "stylePreprocessorOptions": {
     "includePaths": [
-      "src/app/styles/abstract/mixins",
-      "src/app/styles/abstract/constants",
-      "src/app/styles/abstract/placeholders",
-      "src/app/styles/base/base"
+      "src/assets/styles/abstract/mixins",
+      "src/assets/styles/abstract/constants",
+      "src/assets/styles/abstract/placeholders",
+      "src/assets/styles/base/base"
     ]
   },
+
+And into component you need ti point to the right path, like this:
+@use '../../../../assets/styles/abstract/mixins' as *;
+
 */
-@use 'app/styles/abstract/constants' as *;
-@use 'app/styles/abstract/mixins' as *;
-@use 'app/styles/abstract/placeholders' as *;
-@use 'app/styles/base/base' as *;
+// @use 'app/styles/abstract/constants' as *;
+@use './assets/styles/abstract/constants' as *;
+// @use 'app/styles/abstract/mixins' as *;
+@use './assets/styles/abstract/mixins' as *;
+// @use 'app/styles/abstract/placeholders' as *;
+@use './assets/styles/abstract/placeholders' as *;
+// @use 'app/styles/base/base' as *;
+@use './assets/styles/base/base' as *;
 
 html,
 body {

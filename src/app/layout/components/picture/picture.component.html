@@ -1,4 +1,4 @@
-<div class="layout-3-column">
+<div class="layout-3-column" style="width: 100%">
   <div *ngFor="let pic of picSignal()" class="pic-wrapper">
     <img [src]="pic.url" alt="" class="pic" />
     <p>{{ pic.index }}</p>
@@ -7,7 +7,7 @@
     </button>
   </div>
 </div>
-<section style="height: 150px">
+<section style="height: 150px; width: 100%">
   @if (isLoading) {
     <div class="loading-wrapper"></div>
     <div class="loading">

@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, signal, WritableSignal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
-import { GetPictureBanchService } from 'src/app/shared/services/get-picture-banch.service';
+import { GetPictureBanchService } from '@shared/services/get-picture-banch.service';
 import { PictureObjInterface } from '../../models/picture.model';
-import { map } from 'rxjs';
+import { map, of } from 'rxjs';
 
 @Component({
   selector: 'app-picture',
@@ -34,5 +34,16 @@ export class PictureComponent {
   getScreenArraySignal() {
     this.isLoading = true;
     this.getPictureBanch.getBanch();
+  }
+
+  @HostListener('window:scroll', [])
+  onScroll() {
+    // window.
+    if (window.scrollY >= (document.body.offsetHeight) * 2) {
+      const start$ = of('start')
+      // this.getPictureBanch.getBanchScrolling(of('start'));
+      // console.log('window.scrollY = ', window.scrollY);
+      // console.log('document.body.offsetHeight = ', (document.body.offsetHeight) * 2);
+    }
   }
 }

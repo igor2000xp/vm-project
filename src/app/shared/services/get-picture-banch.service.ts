@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, delay, Observable } from 'rxjs';
+import { BehaviorSubject, debounceTime, delay, distinctUntilChanged, map, Observable, switchMap, take, tap, throttleTime } from 'rxjs';
 import { DATA_FOLDER, pictureArray } from 'src/app/layout/data/picData';
 import { PictureObjInterface } from 'src/app/layout/models/picture.model';
 import { environment as env } from 'src/environments/environment.development';
@@ -13,12 +13,10 @@ interface ReturnInterface {
   providedIn: 'root'
 })
 export class GetPictureBanchService {
-  picBanch: string[] = []; // It is to help you remember the current array of pictures.
+  private picBanch: string[] = []; // It is to help you remember the current array of pictures.
   private banchSub = new BehaviorSubject<ReturnInterface>({ isLoading: false, items: [] });
 
   constructor() { }
-
-
 
   getBanch(): Observable<ReturnInterface> {
     // To select random items, picPortion is helpful to have access to the entire collection of images.
@@ -47,5 +45,23 @@ export class GetPictureBanchService {
 
   private getPicArray() {
     return [...pictureArray];
+  }
+
+  print(item: string) {
+    console.log(item);
+  }
+
+  getBanchScrolling(start: Observable<string>) {
+    start.pipe(
+      take(1),
+      debounceTime(10000),
+      throttleTime(1000),
+      distinctUntilChanged(),
+      switchMap((item) => {
+        this.print(item);
+        return item;
+      })
+    ).subscribe();
+
   }
 }
