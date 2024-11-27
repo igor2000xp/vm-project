@@ -19,6 +19,8 @@ export class ScrollNearEndDirective implements OnInit {
    */
   @Input() threshold = 120;
 
+  private oldScrolledY = 0;
+
   private window!: Window;
 
   constructor(private el: ElementRef) { }
@@ -51,18 +53,18 @@ export class ScrollNearEndDirective implements OnInit {
     // console.log('scrollToBottom:', scrollToBottom);
 
     // console.log(
-    //   currentScrolledY,
+    // currentScrolledY,
     //   innerHeight,
     //   heightOfWholePage,
     //   spaceOfElementAndPage
     // );
 
+
     if (scrollToBottom < this.threshold) {
-      // console.log(
-      //   '%c [ScrollNearEndDirective]: emit',
-      //   'color: #bada55; font-size: 20px'
-      // );
-      this.nearEnd.emit();
+      if (currentScrolledY > this.oldScrolledY + 200) { // Debouncing
+        this.nearEnd.emit();
+        this.oldScrolledY = currentScrolledY;
+      }
     }
   }
 }

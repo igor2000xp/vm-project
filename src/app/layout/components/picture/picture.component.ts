@@ -39,7 +39,7 @@ export class PictureComponent {
   }
 
   onNearEndScroll() {
-
+    this.isLoading = true;
     console.log(
       '%c [ScrollNearEndDirective]: emit',
       'color: #bada55; font-size: 20px'

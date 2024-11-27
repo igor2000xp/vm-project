@@ -21,7 +21,6 @@ export class GetPictureBanchService {
   getBanch(): Observable<ReturnInterface> {
     // To select random items, picPortion is helpful to have access to the entire collection of images.
     const picPortion: string[] = this.getPicArray();
-    this.picBanch = this.checkLengthAndCut(this.picBanch);
 
     for (let i = 0; i < env.NUMBER_PIC_ON_PAGE; i += 1) {
       const index = Math.floor(Math.random() * 50);
@@ -36,32 +35,18 @@ export class GetPictureBanchService {
     return this.banchSub.asObservable().pipe(delay(1000));
   }
 
-  private checkLengthAndCut(picBanch: string[]) {
-    if (picBanch.length > env.NUMBER_PIC_IN_BANCH) {
-      picBanch = picBanch.slice(env.NUMBER_PIC_ON_PAGE);
-    }
-    return picBanch;
-  }
-
   private getPicArray() {
     return [...pictureArray];
   }
 
-  print(item: string) {
-    console.log(item);
-  }
 
   getBanchScrolling(start: Observable<string>) {
     start.pipe(
-      take(1),
-      debounceTime(10000),
-      throttleTime(1000),
-      distinctUntilChanged(),
-      switchMap((item) => {
-        this.print(item);
+      debounceTime(1000),
+      map((item) => {
+        this.getBanch();
         return item;
       })
     ).subscribe();
-
   }
 }
