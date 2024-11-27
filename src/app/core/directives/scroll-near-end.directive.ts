@@ -14,21 +14,15 @@ import {
 export class ScrollNearEndDirective implements OnInit {
   @Output() nearEnd: EventEmitter<void> = new EventEmitter<void>();
 
-  /**
-   * threshold in PX when to emit before page end scroll
-   */
+  //  * threshold in PX when to emit before page end scroll
   @Input() threshold = 120;
-
   private oldScrolledY = 0;
-
   private window!: Window;
-
   constructor(private el: ElementRef) { }
 
   ngOnInit(): void {
     // save window object for type safety
     this.window = window;
-    console.log('init');
   }
 
   @HostListener('window:scroll', ['$event.target'])
