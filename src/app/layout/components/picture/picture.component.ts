@@ -1,5 +1,5 @@
 // Example https://stackblitz.com/edit/stackblitz-starters-mdpftu
-import { ChangeDetectionStrategy, Component, HostListener, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, Inject, signal, WritableSignal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -8,10 +8,14 @@ import { GetPictureBanchService } from '@shared/services/get-picture-banch.servi
 import { PictureObjInterface } from '../../models/picture.model';
 import { map, of } from 'rxjs';
 import { ScrollNearEndDirective } from '@core/directives/scroll-near-end.directive';
+import { ButtonComponent } from '@shared/components/button/button.component';
+import { ButtonType } from '@shared/enums/button-types.enum';
+import { IconsMap } from '@shared/models/icons.model';
+import { ICONS_MAP } from '@core/tokens';
 
 @Component({
   selector: 'app-picture',
-  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective],
+  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, ButtonComponent],
   standalone: true,
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.scss',
@@ -20,8 +24,12 @@ import { ScrollNearEndDirective } from '@core/directives/scroll-near-end.directi
 export class PictureComponent {
   picSignal: WritableSignal<PictureObjInterface[]> = signal([]);
   isLoading: Boolean | undefined;
+  buttonType = ButtonType;
 
-  constructor(private getPictureBanch: GetPictureBanchService) {
+  constructor(
+    private getPictureBanch: GetPictureBanchService,
+    @Inject(ICONS_MAP) public iconsMap: IconsMap
+  ) {
     this.isLoading = true;
     const temp = this.getPictureBanch.getBanch().pipe(
       map((res) => {

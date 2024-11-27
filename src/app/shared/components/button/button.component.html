@@ -1,58 +1,24 @@
-<button mat-fab extended class="fab-button">
-  <mat-icon>favorite</mat-icon>
-  Basic
-</button>
+<ng-container [ngSwitch]="buttonType">
+  <ng-container *ngSwitchCase="btnType.fab" [ngTemplateOutlet]="fabButton" />
+  <ng-container *ngSwitchCase="btnType.flat" [ngTemplateOutlet]="defaultButton" />
+  <ng-container *ngSwitchCase="btnType.favorite" [ngTemplateOutlet]="favoriteButtton" />
+</ng-container>
 
-<!-- <section>
-    <h2 id="examleDocs">Example from official DOCS</h2>
-    <br />
-    <div>
-      <a href="https://material.angular.io/components/button/overview" mat-button>Link</a>
-    </div>
-  </section>
-  <section>
-    <div class="example-label">FAB</div>
+<ng-template #fabButton>
+  <button mat-mini-fab class="tune" [style.width.px]="size" [style.height.px]="size">
+    <mat-icon>{{ icon }}</mat-icon>
+  </button>
+</ng-template>
 
-    <button mat-fab class="fab-button">
-      <mat-icon>delete</mat-icon>
-    </button>
+<ng-template #defaultButton>
+  <button mat-flat-button [ngClass]="buttonClass" [disabled]="isDisabled">
+    <ng-content />
+  </button>
+</ng-template>
 
-    <button mat-fab class="fab-button disabled" aria-label="Example icon button with a heart icon">
-      <mat-icon>favorite</mat-icon>
-    </button>
-  </section>
-
-  <mat-divider></mat-divider>
-
-  <section>
-    <div class="example-label">Mini FAB</div>
-
-    <button mat-mini-fab class="fab-button">
-      <mat-icon>menu</mat-icon>
-    </button>
-
-    <button mat-mini-fab class="fab-button disabled">
-      <mat-icon>home</mat-icon>
-    </button>
-  </section>
-
-  <mat-divider></mat-divider>
-
-  <section>
-    <div class="example-label">Extended Fab</div>
-
-    <button mat-fab extended class="fab-button">
-      <mat-icon>favorite</mat-icon>
-      Basic
-    </button>
-
-    <button mat-fab extended class="fab-button disabled">
-      <mat-icon>favorite</mat-icon>
-      Disabled
-    </button>
-
-    <a mat-fab extended routerLink=".">
-      <mat-icon>favorite</mat-icon>
-      Link
-    </a>
-  </section> -->
+<ng-template #favoriteButtton>
+  <button mat-fab extended [ngClass]="buttonClass">
+    <mat-icon>{{ icon }}</mat-icon>
+    <ng-content />
+  </button>
+</ng-template>

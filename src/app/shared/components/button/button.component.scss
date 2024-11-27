@@ -1,28 +1,83 @@
 :host {
-  .fab-button {
-    background: var(--mat-sys-primary-container);
-    color: var(--mat-sys-on-primary-container);
-    // border: 1px solid var(--mat-sys-outline-variant);
-    border: 1px solid red;
-    border-radius: 2px;
-    box-shadow: 2px 0px 4px 0px #764949;
-  }
-
-  .fab-button {
+  .card {
+    color: #ffffff;
+    // background-color: #ca2fed;
+    // box-shadow: 2px 0px 4px 0px #2f80ed;
     background: var(--mat-sys-primary-container);
     color: var(--mat-sys-on-primary-container);
     border: 1px solid var(--mat-sys-outline-variant);
-    border-radius: 2px;
-    box-shadow: 2px 0px 4px 0px #764949;
+    box-shadow: 2px 0px 4px 0px #4d4f51;
+    flex-shrink: 0;
+    border-radius: 4px;
+    width: 150px;
+    height: 44px;
+    margin-top: auto;
+    font-size: 12px;
+    transition: all 0.8s ease-in-out;
+  }
+
+  .search {
+    // color: #ffffff;
+    // background-color: #2f80ed;
+    // box-shadow: 2px 0px 4px 0px #2f80ed;
+    box-shadow: 2px 0px 4px 0px #4d4f51;
+    flex-shrink: 0;
+    border-radius: 0px 4px 4px 0px;
+    width: 80px;
+    height: 24px;
+  }
+
+  .tune {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // color: #ffffff;
+    // background-color: #2f80ed;
+    // box-shadow: 2px 0px 4px 0px #2f80ed;
+    box-shadow: 2px 0px 4px 0px #4d4f51;
+    border-radius: 4px;
+    margin-left: 20px;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .tune:hover {
+    scale: 1.2;
+  }
+
+  .filter {
+    // background-color: #e5e5e5;
+    // color: #1a1b1f;
+    flex-shrink: 0;
+    border-radius: 4px;
+    font-size: 16px;
   }
 
   .disabled {
+    // background-color: #b6a9a9; #2F2B2D
     background-color: #2f2b2d;
     color: #868ca4;
-    box-shadow: 2px 0px 4px 0px #000000;
+    // color: #ffffff;
+    // box-shadow: 2px 0px 4px 0px #cec5c5;
+    box-shadow: 2px 0px 4px 0px #4d4f51;
     flex-shrink: 0;
     border-radius: 4px;
+    width: 120px;
+    height: 32px;
     margin-top: auto;
     font-size: 12px;
+  }
+
+  .asc::after {
+    position: absolute;
+    right: 5px;
+    content: '→';
+    transform: rotate(-90deg);
+  }
+
+  .desc::after {
+    position: absolute;
+    right: 5px;
+    content: '→';
+    transform: rotate(90deg);
   }
 }

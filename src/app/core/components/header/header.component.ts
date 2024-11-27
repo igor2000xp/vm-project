@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, inject } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { AsyncPipe } from '@angular/common';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -7,6 +7,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { ButtonComponent } from 'src/app/shared/components/button/button.component';
+import { ButtonType } from '@shared/enums/button-types.enum';
+import { ICONS_MAP } from '@core/tokens';
+import { IconsMap } from '@shared/models/icons.model';
 // import { Observable } from 'rxjs';
 // import { map, shareReplay } from 'rxjs/operators';
 
@@ -28,10 +31,7 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
 })
 export class HeaderComponent {
   private breakpointObserver = inject(BreakpointObserver);
+  buttonType = ButtonType;
 
-  // isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
-  //   .pipe(
-  //     map(result => result.matches),
-  //     shareReplay()
-  //   );
+  constructor(@Inject(ICONS_MAP) public iconsMap: IconsMap) { }
 }

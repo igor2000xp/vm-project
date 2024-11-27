@@ -4,8 +4,12 @@
       <span>The best Gallery</span>
     </mat-toolbar>
     <mat-toolbar class="button-bar" color="primary">
-      <app-button></app-button>
-      <app-button></app-button>
+      <app-button [buttonType]="buttonType.favorite" buttonClass="card" [icon]="iconsMap['favorite']"
+        >Photos</app-button
+      >
+      <app-button [buttonType]="buttonType.favorite" buttonClass="card" [icon]="iconsMap['favorite']"
+        >Favorites</app-button
+      >
     </mat-toolbar>
     <!-- Add Content Here -->
   </mat-sidenav-content>
