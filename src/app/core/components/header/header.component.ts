@@ -10,6 +10,7 @@ import { ButtonComponent } from 'src/app/shared/components/button/button.compone
 import { ButtonType } from '@shared/enums/button-types.enum';
 import { ICONS_MAP } from '@core/tokens';
 import { IconsMap } from '@shared/models/icons.model';
+import { Router, RouterModule } from '@angular/router';
 // import { Observable } from 'rxjs';
 // import { map, shareReplay } from 'rxjs/operators';
 
@@ -26,6 +27,7 @@ import { IconsMap } from '@shared/models/icons.model';
     MatSidenavModule,
     MatListModule,
     MatIconModule,
+    RouterModule,
     // AsyncPipe,
   ]
 })
@@ -33,5 +35,5 @@ export class HeaderComponent {
   private breakpointObserver = inject(BreakpointObserver);
   buttonType = ButtonType;
 
-  constructor(@Inject(ICONS_MAP) public iconsMap: IconsMap) { }
+  constructor(@Inject(ICONS_MAP) public iconsMap: IconsMap, router: Router) { }
 }

@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from '@core/components/header/header.component';
 // import { MatCardModule } from '@angular/material/card';
 // import { MatFormFieldModule } from '@angular/material/form-field';
 // import { MatInputModule } from '@angular/material/input';
@@ -12,6 +13,7 @@ import { RouterOutlet } from '@angular/router';
   imports: [
     RouterOutlet,
     CommonModule,
+    HeaderComponent,
     // MainComponent,
     // BrowserAnimationsModule,
     // BrowserModule

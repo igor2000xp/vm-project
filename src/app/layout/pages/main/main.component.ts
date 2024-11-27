@@ -15,7 +15,6 @@ import { GalleryComponent } from '../../components/gallery/gallery.component';
     MatInputModule,
     MatIconModule,
     MatDividerModule,
-    HeaderComponent,
     GalleryComponent,
   ],
   templateUrl: './main.component.html',
