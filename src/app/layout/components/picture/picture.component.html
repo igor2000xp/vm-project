@@ -1,4 +1,10 @@
-<div class="layout-3-column" style="width: 100%">
+<!-- <div
+  appScrollNearEnd
+  (nearEnd)="onNearEndScroll()"
+  [dataSource]="dataSourceSignal()"
+  [trackBy]="identity"
+> -->
+<div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
   <div *ngFor="let pic of picSignal()" class="pic-wrapper">
     <img [src]="pic.url" alt="" class="pic" />
     <p>{{ pic.index }}</p>
