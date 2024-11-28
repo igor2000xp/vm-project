@@ -7,10 +7,11 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 import { ButtonType } from '@shared/enums/button-types.enum';
 import { IconsMap } from '@shared/models/icons.model';
 import { ICONS_MAP } from '@core/tokens';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-favorite',
-  imports: [MatDividerModule, CommonModule, ButtonComponent],
+  imports: [MatDividerModule, CommonModule, ButtonComponent, RouterModule],
   templateUrl: './favorite.component.html',
   styleUrl: './favorite.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
