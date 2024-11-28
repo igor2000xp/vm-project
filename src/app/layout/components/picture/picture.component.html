@@ -1,8 +1,8 @@
 <div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
   <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
     <img [src]="pic.url" alt="random picture" class="pic" />
-    <p>{{ pic.index }}</p>
     <!-- // to do remove button -->
+    <!-- // to do add Directive to change color for marked (fav-button) -->
     <app-button
       FavButtonDirective
       (click)="addToFivorite(pic)"

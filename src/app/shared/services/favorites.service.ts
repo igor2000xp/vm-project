@@ -32,7 +32,6 @@ export class FavoritesService {
     // to do - create service local storage
     localStorage.setItem('favoriteList', JSON.stringify(this.favArray));
 
-    console.log(this.favArray);
     return this.favArray;
   }
 
@@ -46,8 +45,14 @@ export class FavoritesService {
 
 
   GetFavoriteList() {
-    // to do may be Observable- Subject for signal()
+    if (!this.favArray.length) this.favArray = JSON.parse(localStorage.getItem('favoriteList') as string) || [... this.favArray];
     return this.favArray;
+  }
+
+  clearFavorite() {
+    // to do - create service local storage
+    localStorage.removeItem('favoriteList');
+    this.favArray = [];
   }
 
 }

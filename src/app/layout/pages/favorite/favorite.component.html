@@ -1,10 +1,23 @@
 <main class="main">
   <h1 id="Start">Hello, {{ title }}</h1>
   <p>Congratulations! These are your favourite photos. 🌟</p>
+  <mat-divider></mat-divider>
 
   <section class="container" style="width: 100%">
-    <app-fav-pictures style="width: 100%"></app-fav-pictures>
+    <div class="layout-3-column" style="width: 100%">
+      <div *ngFor="let pic of favoriteList; trackBy: trackByPicId" class="pic-wrapper">
+        <img [src]="pic.url" alt="random picture" class="pic" />
+      </div>
+    </div>
   </section>
-
-  <mat-divider></mat-divider>
+  <section class="button-wrapper">
+    <app-button
+      FavButtonDirective
+      (click)="resetFivorite()"
+      [buttonType]="buttonType.favorite"
+      buttonClass="card"
+      [icon]="iconsMap['favorite']"
+      >Reset</app-button
+    >
+  </section>
 </main>
