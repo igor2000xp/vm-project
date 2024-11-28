@@ -12,10 +12,11 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 import { ButtonType } from '@shared/enums/button-types.enum';
 import { IconsMap } from '@shared/models/icons.model';
 import { ICONS_MAP } from '@core/tokens';
+import { FavButtonDirective } from '../../directive/fav-button.directive';
 
 @Component({
   selector: 'app-picture',
-  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, ButtonComponent],
+  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, ButtonComponent, FavButtonDirective],
   standalone: true,
   templateUrl: './picture.component.html',
   styleUrl: './picture.component.scss',
@@ -52,13 +53,14 @@ export class PictureComponent {
       '%c [ScrollNearEndDirective]: emit',
       'color: #bada55; font-size: 20px'
     );
-    this.getPictureBanch.getBanchScrolling(of('start'));
+    this.getPictureBanch.getBanchByScrollingEnd(of('start'));
   }
 
   trackByFn(index: number, item: PictureObjInterface) {
     return `${index}=${item.index}=${item.url}`;
   }
 
+  addToFivorite(pic: PictureObjInterface) { }
   // @HostListener('window:scroll', [])
   // onScroll() {
   //   if (window.scrollY >= (document.body.offsetHeight) * 2) {

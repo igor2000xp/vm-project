@@ -2,7 +2,15 @@
   <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
     <img [src]="pic.url" alt="random picture" class="pic" />
     <p>{{ pic.index }}</p>
-    <app-button [buttonType]="buttonType.fab" buttonClass="card" [icon]="iconsMap['favorite']">to Favorite</app-button>
+    <!-- // to do remove button -->
+    <app-button
+      FavButtonDirective
+      (click)="addToFivorite(pic)"
+      [buttonType]="buttonType.fab"
+      buttonClass="card"
+      [icon]="iconsMap['favorite']"
+      >to Favorite</app-button
+    >
   </div>
 </div>
 <section style="height: 150px; width: 100%">
