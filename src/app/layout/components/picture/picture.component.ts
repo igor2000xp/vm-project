@@ -55,6 +55,10 @@ export class PictureComponent {
     this.getPictureBanch.getBanchScrolling(of('start'));
   }
 
+  trackByFn(index: number, item: PictureObjInterface) {
+    return `${index}=${item.index}=${item.url}`;
+  }
+
   // @HostListener('window:scroll', [])
   // onScroll() {
   //   if (window.scrollY >= (document.body.offsetHeight) * 2) {

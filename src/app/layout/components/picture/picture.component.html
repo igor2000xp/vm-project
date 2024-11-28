@@ -1,6 +1,7 @@
 <div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
-  <div *ngFor="let pic of picSignal()" class="pic-wrapper">
-    <img [src]="pic.url" alt="" class="pic" />
+  <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
+    <img [src]="pic.url" alt="random picture" class="pic" />
+    <p>{{ pic.index }}</p>
     <app-button [buttonType]="buttonType.fab" buttonClass="card" [icon]="iconsMap['favorite']">to Favorite</app-button>
   </div>
 </div>
