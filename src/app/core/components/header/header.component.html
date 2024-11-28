@@ -4,22 +4,14 @@
       <span>The best Gallery</span>
     </mat-toolbar>
     <mat-toolbar class="button-bar" color="primary">
-      <app-button
-        routerLink="/main"
-        routerLinkActive="router-link-active"
-        [buttonType]="buttonType.favorite"
-        buttonClass="card"
-        [icon]="iconsMap['favorite']"
-        routerLinkActive="active"
+      <app-button routerLink="/main" [buttonType]="buttonType.favorite" buttonClass="card" [icon]="iconsMap['favorite']"
         >Photos</app-button
       >
       <app-button
         routerLink="/favorites"
-        routerLinkActive="router-link-active"
         [buttonType]="buttonType.favorite"
         buttonClass="card"
         [icon]="iconsMap['favorite']"
-        routerLinkActive="active"
         >Favorites</app-button
       >
     </mat-toolbar>

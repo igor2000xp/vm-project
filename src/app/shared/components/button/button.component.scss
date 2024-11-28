@@ -1,9 +1,9 @@
 :host {
   .card {
     color: #ffffff;
-    // background-color: #ca2fed;
+    background-color: #711686;
     // box-shadow: 2px 0px 4px 0px #2f80ed;
-    background: var(--mat-sys-primary-container);
+    // background: var(--mat-sys-primary-container);
     color: var(--mat-sys-on-primary-container);
     border: 1px solid var(--mat-sys-outline-variant);
     box-shadow: 2px 0px 4px 0px #4d4f51;
@@ -32,7 +32,8 @@
     align-items: center;
     justify-content: center;
     // color: #ffffff;
-    // background-color: #2f80ed;
+    border: #f87bf6 1px solid;
+    background-color: #711686;
     // box-shadow: 2px 0px 4px 0px #2f80ed;
     box-shadow: 2px 0px 4px 0px #4d4f51;
     border-radius: 4px;
@@ -79,5 +80,13 @@
     right: 5px;
     content: '→';
     transform: rotate(90deg);
+  }
+
+  .active {
+    background: #d677eb;
+    // color: var(--mat-sys-on-primary-container);
+    color: white;
+    border: 1px solid var(--mat-sys-outline-variant);
+    box-shadow: 2px 0px 4px 0px #4d4f51;
   }
 }

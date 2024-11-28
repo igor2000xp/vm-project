@@ -17,7 +17,7 @@
 </ng-template>
 
 <ng-template #favoriteButtton>
-  <button mat-fab extended [ngClass]="buttonClass">
+  <button mat-fab extended [ngClass]="[buttonClass]" routerLinkActive="active">
     <mat-icon>{{ icon }}</mat-icon>
     <ng-content />
   </button>
