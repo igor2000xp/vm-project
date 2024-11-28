@@ -2,9 +2,12 @@
   <mat-sidenav-content class="header-container">
     <mat-toolbar color="primary" class="logo">
       <span>The best Gallery</span>
+      <!-- For testing icons -->
+      <!-- <span class="material-icons">&#xE87C;</span> -->
     </mat-toolbar>
     <mat-toolbar class="button-bar" color="primary">
-      <app-button routerLink="/main" [buttonType]="buttonType.favorite" buttonClass="card" [icon]="iconsMap['favorite']"
+      <!-- // to do - change icon, add to token -->
+      <app-button routerLink="/main" [buttonType]="buttonType.favorite" buttonClass="card" [icon]="'image'"
         >Photos</app-button
       >
       <app-button
