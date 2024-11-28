@@ -1,5 +1,5 @@
 // Example https://stackblitz.com/edit/stackblitz-starters-mdpftu
-import { ChangeDetectionStrategy, Component, HostListener, Inject, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject, Inject, signal, WritableSignal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,6 +13,7 @@ import { ButtonType } from '@shared/enums/button-types.enum';
 import { IconsMap } from '@shared/models/icons.model';
 import { ICONS_MAP } from '@core/tokens';
 import { FavButtonDirective } from '../../directive/fav-button.directive';
+import { FavoritesService } from '@shared/services/favorites.service';
 
 @Component({
   selector: 'app-picture',
@@ -27,8 +28,11 @@ export class PictureComponent {
   isLoading: Boolean | undefined;
   buttonType = ButtonType;
 
+  private getPictureBanch = inject(GetPictureBanchService);
+  private favoriteService = inject(FavoritesService);
+
   constructor(
-    private getPictureBanch: GetPictureBanchService,
+    // private getPictureBanch: GetPictureBanchService,
     @Inject(ICONS_MAP) public iconsMap: IconsMap
   ) {
     this.isLoading = true;
@@ -60,7 +64,9 @@ export class PictureComponent {
     return `${index}=${item.index}=${item.url}`;
   }
 
-  addToFivorite(pic: PictureObjInterface) { }
+  addToFivorite(pic: PictureObjInterface) {
+    this.favoriteService.addFavorite(pic);
+  }
   // @HostListener('window:scroll', [])
   // onScroll() {
   //   if (window.scrollY >= (document.body.offsetHeight) * 2) {
