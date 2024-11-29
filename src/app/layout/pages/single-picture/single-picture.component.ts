@@ -8,7 +8,7 @@ import { FavoritesService, ReturnFavInterface } from '@shared/services/favorites
 
 @Component({
   selector: 'app-single-pictures',
-  imports: [ButtonComponent],
+  imports: [ButtonComponent, RouterModule],
   templateUrl: './single-picture.component.html',
   styleUrl: './single-picture.component.scss',
   standalone: true,
@@ -21,19 +21,16 @@ export class SinglePictureComponent implements OnInit {
   route = inject(ActivatedRoute);
   favoriteService = inject(FavoritesService);
   favItemForView: ReturnFavInterface = { id: '', url: '' };
+  router = inject(Router);
 
   constructor(@Inject(ICONS_MAP) public iconsMap: IconsMap) { }
 
-  removeFav() {
-    // to do implenent remove fav  in FavoriteService
-
-    // {id: "-1", url: "assets/pictures/926-200x300.jpg"} ??????????????
+  removeFav(): void {
     this.favoriteService.removeFav(this.photoId);
-    // to do navigate to Fav page
-
+    this.router.navigateByUrl('/favorites');
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.photoId = this.route.snapshot.params['id'];
     this.favList = this.favoriteService.getAllFavList();
     this.favItemForView = this.favList.filter((item) => item.id === this.photoId)[0];

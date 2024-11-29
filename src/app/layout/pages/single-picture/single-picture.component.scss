@@ -2,7 +2,7 @@
 
 :host {
   section {
-    margin: 20px;
+    margin: 0 auto;
     // display: flex;
     // flex-direction: row;
     // align-items: center;
@@ -10,20 +10,20 @@
     // gap: 20px;
   }
 
-  // .pic-wrapper {
-  //   margin: 20px 0;
-  //   text-align: center;
-  //   display: flex;
-  //   flex-direction: column;
-  //   align-items: center;
-  //   justify-content: center;
-  // }
+  .pic-wrapper {
+    margin: 20px 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
-  // .pic {
-  //   display: inline-block;
-  //   justify-self: center;
-  //   width: 80%;
-  // }
+  .pic {
+    display: inline;
+    justify-self: center;
+    width: 80%;
+  }
 
   .button-wrapper {
     margin: auto;

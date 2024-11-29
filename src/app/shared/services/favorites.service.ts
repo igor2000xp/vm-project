@@ -1,5 +1,4 @@
 import { inject, Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
 import { PictureObjInterface } from 'src/app/layout/models/picture.model';
 import { GetPictureBanchService } from './get-picture-banch.service';
 import { DATA_FOLDER, pictureArray } from 'src/app/layout/data/picData';
@@ -27,6 +26,7 @@ export class FavoritesService {
       this.getAllFavList();
       this.getAllPictureList();
     }
+
     const id = String(this.allPictureList.indexOf(pic.url));
     const favoriteItem: ReturnFavInterface = { id, url: pic.url };
 
@@ -48,6 +48,7 @@ export class FavoritesService {
   }
 
   removeFav(id: string): void {
+    this.favArray = this.favArray.filter((item) => item.id !== id);
     this.favLocalStorageService.removeItemFromFavoriteLocalStorage(id);
   }
 

@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
   imports: [MatDividerModule, CommonModule, ButtonComponent, RouterModule],
   templateUrl: './favorite.component.html',
   styleUrl: './favorite.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  // changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FavoriteComponent implements OnInit {
   title = 'Favorite stars!';
