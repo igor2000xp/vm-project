@@ -16,7 +16,7 @@ import { FavButtonDirective } from '../../directive/fav-button.directive';
 import { FavoritesService } from '@shared/services/favorites.service';
 
 @Component({
-  selector: 'app-picture',
+  selector: 'app-pictures',
   imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, ButtonComponent, FavButtonDirective],
   standalone: true,
   templateUrl: './picture.component.html',

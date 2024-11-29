@@ -16,10 +16,10 @@ import { GalleryComponent } from '../../components/gallery/gallery.component';
     MatDividerModule,
     GalleryComponent,
   ],
-  templateUrl: './main.component.html',
-  styleUrl: './main.component.scss',
+  templateUrl: './main-photos.component.html',
+  styleUrl: './main-photos.component.scss',
   standalone: true,
 })
-export class MainComponent {
+export class MainPhotosComponent {
   title = 'gallery-template';
 }
