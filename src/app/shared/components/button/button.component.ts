@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-button',
   imports: [CommonModule, MatIconModule, MatButtonModule, RouterModule],
+  standalone: true,
   providers: [],
   templateUrl: './button.component.html',
   styleUrl: './button.component.scss',

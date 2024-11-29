@@ -2,9 +2,8 @@
   <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
     <img [src]="pic.url" alt="random picture" class="pic" />
     <!-- // to do remove button -->
-    <!-- // to do add Directive to change color for marked (fav-button) -->
+    <!-- // to do add Directive to change color for marked (fav-button.directive) -->
     <app-button
-      FavButtonDirective
       (click)="addToFivorite(pic)"
       [buttonType]="buttonType.fab"
       buttonClass="card"

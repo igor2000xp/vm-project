@@ -1,7 +1,8 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appFavButton]'
+  selector: '[appFavButton]',
+  standalone: true,
 })
 export class FavButtonDirective {
 

@@ -1,20 +1,20 @@
-import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-import { GalleryComponent } from '../../components/gallery/gallery.component';
+import { PicturesComponent } from '../../components/pictures/pictures.component';
 
 @Component({
-  selector: 'app-main',
+  selector: 'app-main-photos',
   imports: [
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
     MatDividerModule,
-    GalleryComponent,
+    PicturesComponent,
   ],
   templateUrl: './main-photos.component.html',
   styleUrl: './main-photos.component.scss',

@@ -9,7 +9,8 @@ import {
 } from '@angular/core';
 
 @Directive({
-  selector: '[appScrollNearEnd]'
+  selector: '[appScrollNearEnd]',
+  standalone: true,
 })
 export class ScrollNearEndDirective implements OnInit {
   @Output() nearEnd: EventEmitter<void> = new EventEmitter<void>();

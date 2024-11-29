@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Inject, inject, OnInit } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
-import { FavPicturesComponent } from "../../components/fav-pictures/fav-pictures.component";
+// import { FavPicturesComponent } from "../../components/fav-pictures/fav-pictures.component";
 import { FavoritesService, ReturnFavInterface } from '@shared/services/favorites.service';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '@shared/components/button/button.component';

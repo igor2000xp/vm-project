@@ -12,31 +12,31 @@ import { ButtonComponent } from '@shared/components/button/button.component';
 import { ButtonType } from '@shared/enums/button-types.enum';
 import { IconsMap } from '@shared/models/icons.model';
 import { ICONS_MAP } from '@core/tokens';
-import { FavButtonDirective } from '../../directive/fav-button.directive';
+// import { FavButtonDirective } from '../../directive/fav-button.directive';
 import { FavoritesService } from '@shared/services/favorites.service';
 
 @Component({
   selector: 'app-pictures',
-  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, ButtonComponent, FavButtonDirective],
+  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, ButtonComponent],
   standalone: true,
-  templateUrl: './picture.component.html',
-  styleUrl: './picture.component.scss',
+  templateUrl: './pictures.component.html',
+  styleUrl: './pictures.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PictureComponent {
+export class PicturesComponent {
   picSignal: WritableSignal<PictureObjInterface[]> = signal([]);
   isLoading: Boolean | undefined;
   buttonType = ButtonType;
 
-  private getPictureBanch = inject(GetPictureBanchService);
+  private getPictureBunch = inject(GetPictureBanchService);
   private favoriteService = inject(FavoritesService);
 
   constructor(
-    // private getPictureBanch: GetPictureBanchService,
+    // private getPictureBunch: GetPictureBanchService,
     @Inject(ICONS_MAP) public iconsMap: IconsMap
   ) {
     this.isLoading = true;
-    const temp = this.getPictureBanch.getBanch().pipe(
+    const temp = this.getPictureBunch.getBanch().pipe(
       map((res) => {
         this.isLoading = res.isLoading;
         return res.items;
@@ -48,7 +48,7 @@ export class PictureComponent {
 
   getScreenArraySignal() {
     this.isLoading = true;
-    this.getPictureBanch.getBanch();
+    this.getPictureBunch.getBanch();
   }
 
   onNearEndScroll() {
@@ -57,7 +57,7 @@ export class PictureComponent {
       '%c [ScrollNearEndDirective]: emit',
       'color: #bada55; font-size: 20px'
     );
-    this.getPictureBanch.getBanchByScrollingEnd(of('start'));
+    this.getPictureBunch.getBanchByScrollingEnd(of('start'));
   }
 
   trackByFn(index: number, item: PictureObjInterface) {
@@ -71,7 +71,7 @@ export class PictureComponent {
   // onScroll() {
   //   if (window.scrollY >= (document.body.offsetHeight) * 2) {
   //     const start$ = of('start')
-  //     // this.getPictureBanch.getBanchScrolling(of('start'));
+  //     // this.getPictureBunch.getBanchScrolling(of('start'));
   //   }
   // }
 }

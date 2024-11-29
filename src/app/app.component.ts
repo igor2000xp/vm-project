@@ -14,7 +14,7 @@ import { HeaderComponent } from '@core/components/header/header.component';
     RouterOutlet,
     CommonModule,
     HeaderComponent,
-    // MainComponent,
+    // MainPhotosComponent,
     // BrowserAnimationsModule,
     // BrowserModule
   ],

@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { MainComponent } from './layout/pages/main/main.component';
+import { MainPhotosComponent } from './layout/pages/main-photos/main-photos.component';
 import { FavoriteComponent } from './layout/pages/favorite/favorite.component';
 import { SinglePictureComponent } from './layout/pages/single-picture/single-picture.component';
 
@@ -11,17 +11,14 @@ export const routes: Routes = [
   },
   {
     path: 'photos',
-    component: MainComponent,
+    component: MainPhotosComponent,
   },
   {
-
     path: 'photos/:id',
     component: SinglePictureComponent,
-
   },
   {
     path: 'favorites',
     component: FavoriteComponent,
-
   }
 ];
