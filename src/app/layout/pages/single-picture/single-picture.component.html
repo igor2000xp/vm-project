@@ -1,1 +1,18 @@
 <h1>{{ photoId }}</h1>
+
+<!-- @let pic = favItemForView -->
+
+<section>
+  <img [src]="favItemForView.url" alt="" />
+</section>
+
+<div class="button-wrapper">
+  <app-button
+    FavButtonDirective
+    (click)="removeFav()"
+    [buttonType]="buttonType.favorite"
+    buttonClass="card"
+    [icon]="iconsMap['favorite']"
+    >Remove</app-button
+  >
+</div>

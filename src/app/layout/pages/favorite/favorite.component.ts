@@ -35,6 +35,6 @@ export class FavoriteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.favoriteList = this.favoriteService.GetFavoriteList();
+    this.favoriteList = this.favoriteService.getAllFavList();
   }
 }

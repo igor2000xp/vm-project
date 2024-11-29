@@ -1,9 +1,10 @@
-import { Injectable, OnInit } from '@angular/core';
+import { inject, Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { PictureObjInterface } from 'src/app/layout/models/picture.model';
 import { GetPictureBanchService } from './get-picture-banch.service';
 import { DATA_FOLDER, pictureArray } from 'src/app/layout/data/picData';
-import { chackDuplicateInArrayOfObj } from '@shared/helps/check-duplicate-arr-obj';
+import { chackDuplicateInArrayOfObj as checkDuplicateInArrayOfObj } from '@shared/helps/check-duplicate-arr-obj';
+import { FavLocalStorageService } from './fav-local-storage.service';
 
 export interface ReturnFavInterface {
   id: string;
@@ -16,43 +17,42 @@ export interface ReturnFavInterface {
 export class FavoritesService {
   private favArray: ReturnFavInterface[] = [];
   private allPictureList: string[] = [];
-  private favBanchSub = new BehaviorSubject<ReturnFavInterface[]>([]);
+  // to do go to Signals() in FavoriteComponenet
+  // private favBanchSub = new BehaviorSubject<ReturnFavInterface[]>([]);
+  favLocalStorageService = inject(FavLocalStorageService);
+  getPictureBanchService = inject(GetPictureBanchService);
 
-  constructor(private getPictureBanchService: GetPictureBanchService) { }
-
-  addFavorite(pic: PictureObjInterface) {
-    if (!this.favArray.length) this.getAllPictureList();
-    console.log(this.allPictureList[0]);
-
+  addFavorite(pic: PictureObjInterface): void {
+    if (!this.favArray.length) {
+      this.getAllFavList();
+      this.getAllPictureList();
+    }
     const id = String(this.allPictureList.indexOf(pic.url));
     const favoriteItem: ReturnFavInterface = { id, url: pic.url };
+
     this.favArray.push(favoriteItem);
-    this.favArray = chackDuplicateInArrayOfObj(this.favArray);
+    this.favArray = checkDuplicateInArrayOfObj(this.favArray);
 
-    // to do - create service local storage
-    localStorage.setItem('favoriteList', JSON.stringify(this.favArray));
+    this.favLocalStorageService.writeNewFavLocalStorage(this.favArray);
+  }
 
+  getAllFavList(): ReturnFavInterface[] {
+    if (!this.favArray.length) this.favArray = this.favLocalStorageService.getItemsFromFavoriteLocalStorage();
     return this.favArray;
   }
 
-  private getAllPictureList() {
-    // to do - create service local storage
-    this.favArray = JSON.parse(localStorage.getItem('favoriteList') as string) || [... this.favArray];
+  getAllPictureList(): string[] {
     const arr = [...pictureArray];
     this.allPictureList = arr.map((item) => DATA_FOLDER + item);
     return this.allPictureList;
   }
 
-
-  GetFavoriteList() {
-    if (!this.favArray.length) this.favArray = JSON.parse(localStorage.getItem('favoriteList') as string) || [... this.favArray];
-    return this.favArray;
+  removeFav(id: string): void {
+    this.favLocalStorageService.removeItemFromFavoriteLocalStorage(id);
   }
 
-  clearFavorite() {
-    // to do - create service local storage
-    localStorage.removeItem('favoriteList');
+  clearFavorite(): void {
+    this.favLocalStorageService.clearLocalStorageFavorite();
     this.favArray = [];
   }
-
 }
