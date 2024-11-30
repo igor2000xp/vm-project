@@ -1,17 +1,24 @@
-<div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
-  <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
-    <img [src]="pic.url" alt="random picture" class="pic" />
-    <!-- // to do remove button -->
-    <!-- // to do add Directive to change color for marked (fav-button.directive) -->
-    <app-button
-      (click)="addToFivorite(pic)"
-      [buttonType]="buttonType.fab"
-      buttonClass="card"
-      [icon]="iconsMap['favorite']"
-      >to Favorite</app-button
-    >
+@defer {
+  <div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
+    <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
+      <img [src]="pic.url" alt="random picture" class="pic" />
+      <!-- // to do remove button -->
+      <!-- // to do add Directive to change color for marked (fav-button.directive) -->
+      <div class="button-wrapper">
+        <app-button
+          (click)="addToFivorite(pic)"
+          [buttonType]="buttonType.fab"
+          buttonClass="card"
+          [icon]="iconsMap['favorite']"
+          >to Favorite</app-button
+        >
+      </div>
+    </div>
   </div>
-</div>
+} @loading {
+  <h2>Loading ...</h2>
+}
+
 <section style="height: 150px; width: 100%">
   @if (isLoading) {
     <div class="loading-wrapper"></div>

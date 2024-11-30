@@ -22,4 +22,9 @@ import { PicturesComponent } from '../../components/pictures/pictures.component'
 })
 export class MainPhotosComponent {
   title = 'gallery-template';
+  // onIdleHandler() {
+  //   setTimeout(() => {
+  //     return true;
+  //   }, 2000)
+  // }
 }

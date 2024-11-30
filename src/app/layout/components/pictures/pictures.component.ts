@@ -1,5 +1,5 @@
 // Example https://stackblitz.com/edit/stackblitz-starters-mdpftu
-import { ChangeDetectionStrategy, Component, HostListener, inject, Inject, signal, WritableSignal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Inject, signal, WritableSignal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,7 +32,6 @@ export class PicturesComponent {
   private favoriteService = inject(FavoritesService);
 
   constructor(
-    // private getPictureBunch: GetPictureBanchService,
     @Inject(ICONS_MAP) public iconsMap: IconsMap
   ) {
     this.isLoading = true;
@@ -74,4 +73,5 @@ export class PicturesComponent {
   //     // this.getPictureBunch.getBanchScrolling(of('start'));
   //   }
   // }
+
 }
