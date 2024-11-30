@@ -27,13 +27,13 @@ export class ButtonComponent {
 
   @Input() buttonClass!: string;
 
-  // @Input() routerLinkActive!: string;
-
   @Input() icon!: keyof typeof this.iconsMap;
 
   @Input() size!: number;
 
   @Input() isDisabled: boolean = false;
+
+  @Input() color: string = 'white';
 
   constructor(@Inject(ICONS_MAP) public iconsMap: IconsMap) { }
 

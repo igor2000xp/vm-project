@@ -1,17 +1,25 @@
 @defer {
   <div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
+    <!-- to do move to new synyax @for -->
     <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
-      <img [src]="pic.url" alt="random picture" class="pic" />
+      <img [src]="pic.url" alt="random picture" class="pic" appFavoriteButton />
       <!-- // to do remove button -->
       <!-- // to do add Directive to change color for marked (fav-button.directive) -->
       <div class="button-wrapper">
+        <!-- [color]="color" (colorChange)="color=$event" -->
         <app-button
+          appFavoriteButton
+          [color]="color"
+          (colorChange)="color = $event"
+          [picUrl]="pic.url"
           (click)="addToFivorite(pic)"
           [buttonType]="buttonType.fab"
           buttonClass="card"
+          [size]="4"
           [icon]="iconsMap['favorite']"
           >to Favorite</app-button
         >
+        <!-- [color]="favColor" -->
       </div>
     </div>
   </div>

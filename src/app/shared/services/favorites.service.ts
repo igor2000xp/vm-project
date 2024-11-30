@@ -1,4 +1,4 @@
-import { inject, Injectable, OnInit } from '@angular/core';
+import { inject, Injectable, OnInit, signal, WritableSignal } from '@angular/core';
 import { PictureObjInterface } from 'src/app/layout/models/picture.model';
 import { GetPictureBanchService } from './get-picture-banch.service';
 import { DATA_FOLDER, pictureArray } from 'src/app/layout/data/picData';
@@ -15,11 +15,20 @@ export interface ReturnFavInterface {
 })
 export class FavoritesService {
   private favArray: ReturnFavInterface[] = [];
+  private favArraySignal: WritableSignal<ReturnFavInterface[]> = signal([]);
   private allPictureList: string[] = [];
   // to do go to Signals() in FavoriteComponenet
   // private favBanchSub = new BehaviorSubject<ReturnFavInterface[]>([]);
   favLocalStorageService = inject(FavLocalStorageService);
   getPictureBanchService = inject(GetPictureBanchService);
+
+  init() {
+    if (!this.favArray.length) {
+      this.getAllFavList();
+      this.getAllPictureList();
+    }
+  }
+
 
   addFavorite(pic: PictureObjInterface): void {
     if (!this.favArray.length) {
@@ -31,14 +40,25 @@ export class FavoritesService {
     const favoriteItem: ReturnFavInterface = { id, url: pic.url };
 
     this.favArray.push(favoriteItem);
+    this.favArraySignal.update((sig) => {
+      sig.push(favoriteItem);
+      return sig;
+    });
     this.favArray = checkDuplicateInArrayOfObj(this.favArray);
 
     this.favLocalStorageService.writeNewFavLocalStorage(this.favArray);
   }
 
   getAllFavList(): ReturnFavInterface[] {
-    if (!this.favArray.length) this.favArray = this.favLocalStorageService.getItemsFromFavoriteLocalStorage();
+    if (!this.favArray.length) {
+      this.favArray = this.favLocalStorageService.getItemsFromFavoriteLocalStorage();
+      this.favArraySignal.set(this.favArray)
+    }
     return this.favArray;
+  }
+
+  getAllFavSignal() {
+    return this.favArraySignal();
   }
 
   getAllPictureList(): string[] {

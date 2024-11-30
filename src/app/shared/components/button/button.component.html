@@ -5,7 +5,7 @@
 </ng-container>
 
 <ng-template #fabButton>
-  <button mat-mini-fab class="tune" [style.width.px]="size" [style.height.px]="size">
+  <button mat-mini-fab class="tune" [style.width.vw]="size" [style.height.vw]="size" [(style.color)]="color">
     <mat-icon>{{ icon }}</mat-icon>
   </button>
 </ng-template>
