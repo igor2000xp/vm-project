@@ -30,18 +30,19 @@ export class FavoritesService {
   }
 
 
-  addFavorite(pic: PictureObjInterface): void {
+  addFavorite(url: string): void {
     if (!this.favArray.length) {
       this.getAllFavList();
       this.getAllPictureList();
     }
 
-    const id = String(this.allPictureList.indexOf(pic.url));
-    const favoriteItem: ReturnFavInterface = { id, url: pic.url };
+    const id = String(this.allPictureList.indexOf(url));
+    const favoriteItem: ReturnFavInterface = { id, url };
 
     this.favArray.push(favoriteItem);
     this.favArraySignal.update((sig) => {
       sig.push(favoriteItem);
+      sig = [...sig];
       return sig;
     });
     this.favArray = checkDuplicateInArrayOfObj(this.favArray);

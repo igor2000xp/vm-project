@@ -1,27 +1,8 @@
 @defer {
   <div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
-    <!-- to do move to new synyax @for -->
-    <div *ngFor="let pic of picSignal(); trackBy: trackByFn" class="pic-wrapper">
-      <img [src]="pic.url" alt="random picture" class="pic" appFavoriteButton />
-      <!-- // to do remove button -->
-      <!-- // to do add Directive to change color for marked (fav-button.directive) -->
-      <div class="button-wrapper">
-        <!-- [color]="color" (colorChange)="color=$event" -->
-        <app-button
-          appFavoriteButton
-          [color]="color"
-          (colorChange)="color = $event"
-          [picUrl]="pic.url"
-          (click)="addToFivorite(pic)"
-          [buttonType]="buttonType.fab"
-          buttonClass="card"
-          [size]="4"
-          [icon]="iconsMap['favorite']"
-          >to Favorite</app-button
-        >
-        <!-- [color]="favColor" -->
-      </div>
-    </div>
+    @for (pic of picSignal(); track pic.url) {
+      <app-picture-item [url]="pic.url"></app-picture-item>
+    }
   </div>
 } @loading {
   <h2>Loading ...</h2>
@@ -29,7 +10,6 @@
 
 <section style="height: 150px; width: 100%">
   @if (isLoading) {
-    <div class="loading-wrapper"></div>
     <div class="loading">
       <mat-spinner></mat-spinner>
     </div>

@@ -2,13 +2,14 @@
 
 :host {
   width: 100%;
+  padding: 2% 0;
   .layout-3-column {
     @include columns(30%);
   }
+  row-gap: 2%;
 
   .pic-wrapper {
-    // margin: 0 auto;
-    padding: 20px 0;
+    margin: 0 auto;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -16,26 +17,9 @@
     justify-content: center;
   }
 
-  .pic {
-    display: inline-block;
-    justify-self: center;
-    width: 90%;
-    height: 90%;
-  }
-
   .loading {
     margin: auto;
     display: flex;
     justify-content: center;
-  }
-
-  .loading-wrapper {
-    width: 100%;
-  }
-  .button-wrapper {
-    margin: 0;
-    position: relative;
-    bottom: 10%;
-    right: -33%;
   }
 }
