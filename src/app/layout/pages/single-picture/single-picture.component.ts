@@ -17,10 +17,10 @@ import { FavoritesService, ReturnFavInterface } from '@shared/services/favorites
 export class SinglePictureComponent implements OnInit {
   buttonType = ButtonType;
   photoId: string = '';
-  favList: ReturnFavInterface[] = [];
+  favItemForView: ReturnFavInterface = { id: '', url: '' };
+
   route = inject(ActivatedRoute);
   favoriteService = inject(FavoritesService);
-  favItemForView: ReturnFavInterface = { id: '', url: '' };
   router = inject(Router);
 
   constructor(@Inject(ICONS_MAP) public iconsMap: IconsMap) { }
@@ -32,7 +32,7 @@ export class SinglePictureComponent implements OnInit {
 
   ngOnInit(): void {
     this.photoId = this.route.snapshot.params['id'];
-    this.favList = this.favoriteService.getAllFavList();
-    this.favItemForView = this.favList.filter((item) => item.id === this.photoId)[0];
+    const favList: ReturnFavInterface[] = this.favoriteService.getAllFavList();
+    this.favItemForView = favList.filter((item) => item.id === this.photoId)[0];
   }
 }

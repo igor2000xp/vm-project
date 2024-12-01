@@ -8,14 +8,12 @@ import { GetPictureBanchService } from '@shared/services/get-picture-banch.servi
 import { PictureObjInterface } from '../../models/picture.model';
 import { map, of } from 'rxjs';
 import { ScrollNearEndDirective } from '@core/directives/scroll-near-end.directive';
-import { ButtonComponent } from '@shared/components/button/button.component';
 import { FavoritesService } from '@shared/services/favorites.service';
-import { FavoriteButtonDirective } from '../../directives/favorite-button.directive';
 import { PictureItemComponent } from '../picture-item/picture-item.component';
 
 @Component({
   selector: 'app-pictures',
-  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, ButtonComponent, FavoriteButtonDirective, PictureItemComponent],
+  imports: [CommonModule, MatIconModule, MatProgressSpinnerModule, ScrollNearEndDirective, PictureItemComponent],
   standalone: true,
   templateUrl: './pictures.component.html',
   styleUrl: './pictures.component.scss',
@@ -24,6 +22,7 @@ import { PictureItemComponent } from '../picture-item/picture-item.component';
 export class PicturesComponent implements OnInit {
   picSignal: WritableSignal<PictureObjInterface[]> = signal([]);
   isLoading: Boolean | undefined = true;
+  isPictireListBlock = true;
 
   private getPictureBunch = inject(GetPictureBanchService);
   private fs = inject(FavoritesService);
@@ -40,6 +39,7 @@ export class PicturesComponent implements OnInit {
   }
   ngOnInit(): void {
     this.fs.init();
+    this.fs.getAllFavSignal();
   }
 
   getScreenArraySignal() {

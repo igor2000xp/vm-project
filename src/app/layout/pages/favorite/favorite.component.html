@@ -5,12 +5,9 @@
 
   <section class="container" style="width: 100%">
     <div class="layout-3-column" style="width: 100%">
-      <div
-        *ngFor="let pic of favoriteList; trackBy: trackByPicId"
-        class="pic-wrapper"
-        [routerLink]="['/photos', pic.id]">
-        <img *ngIf="pic?.url" [src]="pic.url" alt="random picture" class="pic" />
-      </div>
+      @for (pic of favoriteList; track $index + pic.url) {
+        <app-picture-item [url]="pic.url" [isPictireListBlock]="isPictireListBlock"></app-picture-item>
+      }
     </div>
   </section>
   <section class="button-wrapper">

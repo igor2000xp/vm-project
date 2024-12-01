@@ -1,7 +1,7 @@
 @defer {
   <div class="layout-3-column" style="width: 100%" appScrollNearEnd (nearEnd)="onNearEndScroll()">
-    @for (pic of picSignal(); track pic.url) {
-      <app-picture-item [url]="pic.url"></app-picture-item>
+    @for (pic of picSignal(); track pic.url + +pic.index) {
+      <app-picture-item [url]="pic.url" [isPictireListBlock]="isPictireListBlock"></app-picture-item>
     }
   </div>
 } @loading {

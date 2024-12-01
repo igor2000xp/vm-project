@@ -21,10 +21,5 @@ import { PicturesComponent } from '../../components/pictures/pictures.component'
   standalone: true,
 })
 export class MainPhotosComponent {
-  title = 'gallery-template';
-  // onIdleHandler() {
-  //   setTimeout(() => {
-  //     return true;
-  //   }, 2000)
-  // }
+  title = 'Picture Gallery application';
 }

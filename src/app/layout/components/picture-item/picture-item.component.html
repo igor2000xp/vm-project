@@ -1,16 +1,17 @@
-<img [src]="url" alt="random picture" class="pic" appFavoriteButton />
-
-<div class="button-wrapper">
-  <app-button
-    appFavoriteButton
-    [color]="color"
-    (colorChange)="color = $event"
-    [picUrl]="url"
-    (click)="addToFivorite(url)"
-    [buttonType]="buttonType.fab"
-    buttonClass="card"
-    [size]="4"
-    [icon]="iconsMap['favorite']"
-    >to Favorite</app-button
-  >
-</div>
+<img [src]="url" alt="random picture" class="pic" (click)="onClick()" />
+@if (isPictireListBlock) {
+  <div class="button-wrapper">
+    <app-button
+      appFavoriteButton
+      [color]="color"
+      (colorChange)="color = $event"
+      [picUrl]="url"
+      (click)="addToFivorite(url)"
+      [buttonType]="buttonType.fab"
+      buttonClass="card"
+      [size]="4"
+      [icon]="iconsMap['favorite']"
+      >to Favorite</app-button
+    >
+  </div>
+}

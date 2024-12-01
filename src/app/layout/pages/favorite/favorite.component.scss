@@ -4,6 +4,7 @@
   width: 100%;
   .layout-3-column {
     @include columns(30%);
+    justify-content: space-around;
   }
 
   .main {

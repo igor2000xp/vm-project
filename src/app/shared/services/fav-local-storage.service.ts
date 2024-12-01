@@ -7,7 +7,7 @@ import { ReturnFavInterface } from './favorites.service';
 })
 export class FavLocalStorageService {
   getItemsFromFavoriteLocalStorage(): ReturnFavInterface[] {
-    return JSON.parse(localStorage.getItem(environment.KEY_LOCAL_STORAGE) as string) || [];
+    return JSON.parse(localStorage.getItem(environment.KEY_LOCAL_STORAGE) || '') || [''];
   }
 
   writeNewFavLocalStorage(item: ReturnFavInterface[]): void {
